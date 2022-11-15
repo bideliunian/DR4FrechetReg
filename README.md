@@ -1,2 +1,2 @@
 # SDR4FrechetReg
-SDR for Frechet Regression
+The code for the paper 'Dimension Reduction for Frechet Regression'.

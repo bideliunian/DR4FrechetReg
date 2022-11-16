@@ -4,13 +4,9 @@
 
 ############################# PART 1: Preparation #################################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/SphereData"
-save_path <- "D:/Research/DR4FR/Codes/Visualization"
-
-# function_path <- "~/work/DR4FR/Functions"
-# working_path <- "~/work/DR4FR/SphereData"
-# save_path <- "~/work/DR4FR/Visualization"
+function_path <- "~/PARENT_DIRECTORY/Functions"
+working_path <- "~/PARENT_DIRECTORY/SphereData"
+save_path <- "~/PARENT_DIRECTORY/Visualization"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path,

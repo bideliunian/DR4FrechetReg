@@ -4,13 +4,9 @@
 
 ############################# PART 1: Preparation #################################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/DistData"
-save_path <- "D:/Research/DR4FR/Codes/Visualization"
-
-# function_path <- "~/work/DR4FR/Functions"
-# working_path <- "~/work/DR4FR/DistData"
-# save_path <- "~/work/DR4FR/Visualization"
+function_path <- "~/PARENT_DIRECTORY/Functions"
+working_path <- "~/PARENT_DIRECTORY/DistData"
+save_path <- "~/PARENT_DIRECTORY/Visualization"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path,
@@ -94,21 +90,3 @@ fig_csd_sp2 <- plot_ly(plotdata, x = ~x, y = ~csd2, z = ~z, type = 'scatter3d',
     ),showlegend = FALSE)
 
 
-
-#######################################################
-###### if use kernel pca to represent the response ########
-
-kpca_vectors <- kpca(ygram)
-
-df_kpca <- data.frame(first_sp = data$x%*%bhat.opg[,1], second_sp = data$x%*%bhat.opg[,2],
-                first_kpc = kpca_vectors[,1], second_kpc = kpca_vectors[,2])
-
-require(gridExtra)
-require(ggplot2)
-
-plot1 = ggplot(df, aes(x=first_sp, y=first_kpc)) + geom_point()
-plot2 = ggplot(df, aes(x=first_sp, y=second_kpc)) + geom_point()
-plot3 = ggplot(df, aes(x=second_sp, y=first_kpc)) + geom_point()
-plot4 = ggplot(df, aes(x=second_sp, y=second_kpc)) + geom_point()
-
-grid.arrange(plot1, plot2, plot3, plot4, ncol=2)

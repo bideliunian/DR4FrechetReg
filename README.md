@@ -22,7 +22,7 @@ R packages to analyze mortality data and reproduce figures:
 * gridExtra v 2.3
 * htmlwidgets v 1.5.4
 
-### Folder Structure: 
+### Folder Structure
 
 * `./DR4FrechetReg/Functions/`  code for all functions used in the paper.
 * `./DR4FrechetReg/DistData/`  code to reproduce simulations in Section 6.2 Scenario I for distributions.

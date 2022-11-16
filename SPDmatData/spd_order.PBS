@@ -3,7 +3,7 @@
 #PBS -l walltime=1:00:00
 #PBS -l pmem=2gb
 #PBS -l feature=rhel7
-#PBS -A drh20_a_g_sc_default
+#PBS -A open
 #PBS -N spd12_order
 #PBS -j oe
 

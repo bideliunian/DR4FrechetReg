@@ -4,7 +4,7 @@
 #PBS -l pmem=2gb
 #PBS -l feature=rhel7
 #PBS -A open
-#PBS -N dist12_order
+#PBS -N spd
 #PBS -j oe
 
 echo " "
@@ -13,7 +13,7 @@ echo "Job started on `hostname` at `date`"
 
 cd $PBS_O_WORKDIR
 
-Rscript order_deter_model12.R $args
+Rscript training_spd_b.R $args
 
 echo " "
 echo "Job Ended at `date`"

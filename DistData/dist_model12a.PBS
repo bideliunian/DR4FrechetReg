@@ -4,7 +4,7 @@
 #PBS -l pmem=2gb
 #PBS -l feature=rhel7
 #PBS -A open
-#PBS -N sphere
+#PBS -N dist12
 #PBS -j oe
 
 echo " "
@@ -13,7 +13,7 @@ echo "Job started on `hostname` at `date`"
 
 cd $PBS_O_WORKDIR
 
-Rscript training_sphere.R $args
+Rscript training_dist_model12a.R $args
 
 echo " "
 echo "Job Ended at `date`"

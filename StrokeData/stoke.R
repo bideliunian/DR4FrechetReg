@@ -126,6 +126,11 @@ fig_chaos <- plot_ly(plotdata, x = ~x, y = ~y, z = ~dens, type = 'scatter3d',
       yaxis = list(title = ""),
       zaxis = list(title = list(text="density", font=list(size=24)))), showlegend = FALSE)
 
+htmlwidgets::saveWidget(
+  widget = fig_chaos, 
+  file = paste(working_path, "fig_chaos.html", sep="/"),
+  selfcontained = TRUE
+)
 
 ## versus first cs direction
 fig_csd <- plot_ly(plotdata, x = ~x, y = ~csd1, z = ~dens, type = 'scatter3d', 
@@ -136,6 +141,11 @@ fig_csd <- plot_ly(plotdata, x = ~x, y = ~csd1, z = ~dens, type = 'scatter3d',
       zaxis = list(title = list(text="density", font=list(size=24)))),
       showlegend = FALSE)
 
+htmlwidgets::saveWidget(
+  widget = fig_chaos, 
+  file = paste(working_path, "fig_csd.html", sep="/"),
+  selfcontained = TRUE
+)
 
 ## summary stats plots
 fig_mean <- plot_ly(data = plotdata_sum, x= plotdata_sum$csd1, y = plotdata_sum$mean, name = 'Mean', type = 'scatter', mode = 'markers')%>%
@@ -155,3 +165,8 @@ fig_sd <- plot_ly(data = plotdata_sum, x= plotdata_sum$csd1, y =plotdata_sum$sd,
          legend = list(font = list(size = 24)))
 fig_sum <- subplot(fig_mean,fig_mode,fig_sd,fig_skew,nrows = 2, shareX = TRUE, titleX = TRUE) 
 
+htmlwidgets::saveWidget(
+  widget = fig_sum_meansd, 
+  file = paste(working_path, "fig_sum.html", sep="/"),
+  selfcontained = TRUE
+)

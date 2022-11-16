@@ -112,47 +112,47 @@ xtable(result_all)
 ################################# Model 3&4 ###############################
 ###################### predictor setting (a) ###################
 # set global parameters
-times_repeat <- 100
-n_list <- c(200, 400)
-p_list <- c(10, 20)
-m <- 100
-non_elliptical <- -1
-rho <- 0
-Models <- c('distex3','distex4')
-Methods <-c('fols','fphd','fiht','fsir','fsave','fdr','fopg','wire') #'fmave'
-kernel_type <- "Gaussian"
-kernel_para <- 1
-data_type <- "distribution"
-
-# record parameters in a grid
-grid_3 <- expand.grid(n = n_list[1], p=p_list[1], m=m, rho=rho, 
-                      non_ellip=non_elliptical, model = Models, 
-                      stringsAsFactors=FALSE)
-grid_4 <- expand.grid(n = n_list[2], p=p_list[2], m=m, rho=rho, 
-                      non_ellip=non_elliptical, model = Models, 
-                      stringsAsFactors=FALSE)
-grid_34 <- rbind(grid_3, grid_4)
-
-error_array_34 <- array(NA, dim=c(nrow(grid_34), length(Methods), times_repeat))
-order_array_34 <- array(NA, dim=c(nrow(grid_34), length(Methods), times_repeat))
-for (i in 1:times_repeat) {
-  load(file = paste(save_path, "/model34.rho=", rho,"nonellip=", non_elliptical,
-                    ".result",i,".RData",sep=""))
-  # estimation error
-  error_array_34[,,i] <-  matrix(unlist(result[1, ]), nrow=nrow(grid_34), byrow=TRUE)
-  # percentage of correct identification
-  order_array_34[,,i] <- matrix(unlist(result[2, ]), nrow=nrow(grid_34), byrow=TRUE)
-}
-
-error_mean_34 <- apply(error_array_34, MARGIN=c(1,2), mean)
-error_sd_34 <- apply(error_array_34, MARGIN=c(1,2), sd)
-order_perc_34 <- apply(order_array_34, MARGIN=c(1,2), mean)
-
-colnames(error_mean_34) <- paste(Methods, "mean")
-colnames(error_sd_34) <- paste(Methods, "sd")
-colnames(order_perc_34) <- Methods
-
-result_34_a <- cbind(grid_34, error_mean_34, error_sd_34, order_perc_34)
+# times_repeat <- 100
+# n_list <- c(200, 400)
+# p_list <- c(10, 20)
+# m <- 100
+# non_elliptical <- -1
+# rho <- 0
+# Models <- c('distex3','distex4')
+# Methods <-c('fols','fphd','fiht','fsir','fsave','fdr','fopg','wire') #'fmave'
+# kernel_type <- "Gaussian"
+# kernel_para <- 1
+# data_type <- "distribution"
+# 
+# # record parameters in a grid
+# grid_3 <- expand.grid(n = n_list[1], p=p_list[1], m=m, rho=rho, 
+#                       non_ellip=non_elliptical, model = Models, 
+#                       stringsAsFactors=FALSE)
+# grid_4 <- expand.grid(n = n_list[2], p=p_list[2], m=m, rho=rho, 
+#                       non_ellip=non_elliptical, model = Models, 
+#                       stringsAsFactors=FALSE)
+# grid_34 <- rbind(grid_3, grid_4)
+# 
+# error_array_34 <- array(NA, dim=c(nrow(grid_34), length(Methods), times_repeat))
+# order_array_34 <- array(NA, dim=c(nrow(grid_34), length(Methods), times_repeat))
+# for (i in 1:times_repeat) {
+#   load(file = paste(save_path, "/model34.rho=", rho,"nonellip=", non_elliptical,
+#                     ".result",i,".RData",sep=""))
+#   # estimation error
+#   error_array_34[,,i] <-  matrix(unlist(result[1, ]), nrow=nrow(grid_34), byrow=TRUE)
+#   # percentage of correct identification
+#   order_array_34[,,i] <- matrix(unlist(result[2, ]), nrow=nrow(grid_34), byrow=TRUE)
+# }
+# 
+# error_mean_34 <- apply(error_array_34, MARGIN=c(1,2), mean)
+# error_sd_34 <- apply(error_array_34, MARGIN=c(1,2), sd)
+# order_perc_34 <- apply(order_array_34, MARGIN=c(1,2), mean)
+# 
+# colnames(error_mean_34) <- paste(Methods, "mean")
+# colnames(error_sd_34) <- paste(Methods, "sd")
+# colnames(order_perc_34) <- Methods
+# 
+# result_34_a <- cbind(grid_34, error_mean_34, error_sd_34, order_perc_34)
 
 
 ########### predictor setting (b) ###################

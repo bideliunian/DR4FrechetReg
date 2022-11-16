@@ -37,3 +37,5 @@ set.seed(2021)
 bk_list <- lapply(b0_list, bchmk, N=1000)
 bk_mat <- round(matrix(unlist(bk_list), nrow = nrow(grid), ncol = 2, byrow = TRUE),3)
 grid_bk <- cbind(grid, bk_mat)
+
+print(grid_bk)

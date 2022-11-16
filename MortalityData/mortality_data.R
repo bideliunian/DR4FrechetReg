@@ -14,6 +14,7 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 library(RColorBrewer)
+library(htmlwidgets)
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path, 
@@ -152,6 +153,11 @@ fig_chaos <- plot_ly(plotdata, x = ~x, y = ~y, z = ~z, type = 'scatter3d',
     yaxis = list(title = ""),
     zaxis = list(title = "")),showlegend = FALSE)
 
+htmlwidgets::saveWidget(
+  widget = fig_chaos, 
+  file = paste(working_path, "fig_chaos.html", sep="/"),
+  selfcontained = TRUE
+)
 
 # 3D plot, densities vs first sufficient predictor
 fig_csd <- plot_ly(plotdata, x = ~x, y = ~csd1, z = ~z, type = 'scatter3d', 
@@ -163,28 +169,33 @@ fig_csd <- plot_ly(plotdata, x = ~x, y = ~csd1, z = ~z, type = 'scatter3d',
       zaxis = list(title = "")
     ),showlegend = FALSE)
 
+htmlwidgets::saveWidget(
+  widget = fig_chaos, 
+  file = paste(working_path, "fig_csd.html", sep="/"),
+  selfcontained = TRUE
+)
 
 # 3D plot, densities vs second sufficient predictors
-fig_csd_sp2 <- plot_ly(plotdata, x = ~x, y = ~csd2, z = ~z, type = 'scatter3d', 
-                   mode = 'lines', color = ~z, split = ~csd2, alpha=1,colors = palette(100))%>% 
-  layout(
-    scene = list(
-      xaxis = list(title = list(text="Age-at-death", font=list(size=18))),
-      yaxis = list(title = list(text="2nd SP", font=list(size=18)), range=c(-4,2.5)),
-      zaxis = list(title = "")
-    ),showlegend = FALSE)
+# fig_csd_sp2 <- plot_ly(plotdata, x = ~x, y = ~csd2, z = ~z, type = 'scatter3d', 
+#                    mode = 'lines', color = ~z, split = ~csd2, alpha=1,colors = palette(100))%>% 
+#   layout(
+#     scene = list(
+#       xaxis = list(title = list(text="Age-at-death", font=list(size=18))),
+#       yaxis = list(title = list(text="2nd SP", font=list(size=18)), range=c(-4,2.5)),
+#       zaxis = list(title = "")
+#     ),showlegend = FALSE)
 
 
 
 # 3D plot, densities vs GDP 
-fig_gdp <- plot_ly(plotdata, x = ~x, y = ~gdp, z = ~z, type = 'scatter3d',
-                   mode = 'lines', color = ~z, split = ~gdp, alpha=1,colors = palette(100))%>%
-  layout(
-    scene = list(
-      xaxis = list(title = list(text="Age-at-death", font=list(size=18))),
-      yaxis = list(title = list(text="GDP", font=list(size=18))),
-      zaxis = list(title = "")
-    ),showlegend = FALSE)
+# fig_gdp <- plot_ly(plotdata, x = ~x, y = ~gdp, z = ~z, type = 'scatter3d',
+#                    mode = 'lines', color = ~z, split = ~gdp, alpha=1,colors = palette(100))%>%
+#   layout(
+#     scene = list(
+#       xaxis = list(title = list(text="Age-at-death", font=list(size=18))),
+#       yaxis = list(title = list(text="GDP", font=list(size=18))),
+#       zaxis = list(title = "")
+#     ),showlegend = FALSE)
 
 
 # summary statistics vs first sufficient predictor
@@ -232,15 +243,20 @@ fig_sum_meansd_1st <- subplot(fig_mean, fig_sd, nrows = 2, shareX = TRUE, titleX
 fig_sum_meansd_2nd <- subplot(fig_mean_sp2, fig_sd_sp2, nrows = 2, shareX = TRUE, titleX = TRUE)%>% layout(colorway=mypalette[1:2], annotations=list(color=vnames))
 fig_sum_meansd <- subplot(fig_sum_meansd_1st, style(fig_sum_meansd_2nd, showlegend = FALSE), nrows = 1, titleX = TRUE)
 
+htmlwidgets::saveWidget(
+  widget = fig_sum_meansd, 
+  file = paste(working_path, "fig_sum_meansd.html", sep="/"),
+  selfcontained = TRUE
+)
 
-# summary statistics vs the first two sufficient predictors
-library(latticeExtra)
-palette_2 <- rev(colorRampPalette(brewer.pal(6, "RdYlGn"))(20))
-fig_mean_2 <- levelplot(mean ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
-          xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
-fig_mode_2 <- levelplot(mode ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
-                      xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
-fig_var_2 <- levelplot(var ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
-                      xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
-fig_skew_2 <- levelplot(skew ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
-                     xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
+# # summary statistics vs the first two sufficient predictors
+# library(latticeExtra)
+# palette_2 <- rev(colorRampPalette(brewer.pal(6, "RdYlGn"))(20))
+# fig_mean_2 <- levelplot(mean ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
+#           xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
+# fig_mode_2 <- levelplot(mode ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
+#                       xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
+# fig_var_2 <- levelplot(var ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
+#                       xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')
+# fig_skew_2 <- levelplot(skew ~ csd1 * csd2, plotdata_sum, panel = panel.levelplot.points, cex = 1,
+#                      xlab = '1st sufficient predictor', ylab = '2nd sufficient predictor')

@@ -4,13 +4,13 @@
 
 ############################# PART 1: Preparation ##############################
 
-# function_path <- "D:/Research/DR4FR/Codes/Functions"
-# working_path <- "D:/Research/DR4FR/Codes/SphereData"
-# save_path <- "D:/Research/DR4FR/Codes/SphereData/Results"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/SphereData"
+save_path <- "~/DR4FrechetReg/SphereData/Results"
 
-function_path <- "~/work/DR4FR/Functions"
-working_path <- "~/work/DR4FR/SphereData"
-save_path <- "~/work/DR4FR/SphereData/Results"
+# function_path <- "~/work/DR4FR/Functions"
+# working_path <- "~/work/DR4FR/SphereData"
+# save_path <- "~/work/DR4FR/SphereData/Results"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path, 

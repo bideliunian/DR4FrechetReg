@@ -4,13 +4,9 @@
 
 ############################# PART 1: Preparation #################################
 
-# function_path <- "D:/Research/DR4FR/Codes/Functions"
-# working_path <- "D:/Research/DR4FR/Codes/SPDmatData"
-# save_path <- "D:/Research/DR4FR/Codes/SPDmatData/Results"
-
-function_path <- "~/work/DR4FR/Functions"
-working_path <- "~/work/DR4FR/SPDmatData"
-save_path <- "~/work/DR4FR/SPDmatData/Results"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/SPDmatData"
+save_path <- "~/DR4FrechetReg/SPDmatData/Results"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path, 

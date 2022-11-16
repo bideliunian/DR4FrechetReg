@@ -4,9 +4,9 @@
 
 ############################# PART 1: Preparation #################################
 
-function_path <- "~/PARENT_DIRECTORY/Functions"
-working_path <- "~/PARENT_DIRECTORY/SphereData"
-save_path <- "~/PARENT_DIRECTORY/Visualization"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/SphereData"
+save_path <- "~/DR4FrechetReg/Visualization"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path,

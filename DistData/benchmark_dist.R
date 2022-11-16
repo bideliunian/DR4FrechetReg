@@ -1,13 +1,9 @@
 ############## evaluate benchmark error via Monte Carlo ################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/DistData"
-save_path <- "D:/Research/DR4FR/Codes/DistData/Results"
-
 # 
-# function_path <- "~/work/DR4FR/Functions"
-# working_path <- "~/work/DR4FR/DistData"
-# save_path <- "~/work/DR4FR/DistData/Results"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/DistData"
+save_path <- "~/DR4FrechetReg/DistData/Results"
 
 # source all function scipts from the function path
 function_sources <- list.files(function_path,

@@ -2,7 +2,8 @@
 ############ read the result and box plot #################
 ###########################################################
 
-save_path <- "D:/Research/DR4FR/Codes/SPDmatData/OrderResults"
+save_path <- "~/DR4FrechetReg/SPDmatData/OrderResults"
+
 # if use aci
 #save_path <- "~/work/DR4FR/SPDmatData/OrderResults"
 

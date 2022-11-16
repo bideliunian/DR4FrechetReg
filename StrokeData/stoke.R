@@ -4,13 +4,10 @@
 
 ############################# PART 1: Preparation #################################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/StrokeData"
-save_path <- "D:/Research/DR4FR/Codes/StrokeData"
 
-# function_path <- "~/work/DR4FR/Functions"
-# working_path <- "~/work/DR4FR/StrokeData"
-# save_path <- "~/work/DR4FR/StrokeData"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/StrokeData"
+save_path <- "~/DR4FrechetReg/StrokeData"
 
 library(frechet)
 library(dplyr)

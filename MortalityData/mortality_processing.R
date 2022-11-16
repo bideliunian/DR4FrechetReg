@@ -2,13 +2,9 @@
 ############################   Processing Mortality Data ######################
 ##################################################################################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/MortalityData"
-save_path <- "D:/Research/DR4FR/Codes/MortalityData"
-
-# function_path <- "~/work/DR4FR/Functions"
-# working_path <- "~/work/DR4FR/MortalityData"
-# save_path <- "~/work/DR4FR/MortalityData"
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/MortalityData"
+save_path <- "~/DR4FrechetReg/MortalityData"
 
 setwd(paste(save_path, "raw_data", sep = '/'))
 

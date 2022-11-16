@@ -1,8 +1,8 @@
 ############## evaluate benchmark error via Monte Carlo ################
 
-function_path <- "D:/Research/DR4FR/Codes/Functions"
-working_path <- "D:/Research/DR4FR/Codes/SPDmatData"
-# 
+function_path <- "~/DR4FrechetReg/Functions"
+working_path <- "~/DR4FrechetReg/SPDmatData"
+
 # function_path <- "~/work/DR4FR/Functions"
 # working_path <- "~/work/DR4FR/SPDmatData"
 

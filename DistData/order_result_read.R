@@ -2,7 +2,7 @@
 ############ read the result and box plot #################
 ###########################################################
 
-save_path <- "D:/Research/DR4FR/Codes/DistData/OrderResults"
+save_path <- "~/DR4FrechetReg/DistData/OrderResults"
 # if use aci
 #save_path <- "~/work/DR4FR/DistData/OrderResults"
 
